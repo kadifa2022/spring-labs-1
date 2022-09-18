@@ -11,13 +11,15 @@ import java.util.Map;
 
 @Component
 public class CartServiceImpl implements CartService{
+
+    private  final  CartRepository cartRepository;
+    private final StockService service;
     public CartServiceImpl(CartRepository cartRepository, StockService service) {
         this.cartRepository = cartRepository;
         this.service = service;
     }
 
-    private  final  CartRepository cartRepository;
-    private final StockService service;
+
 
     public Cart addCart(Product product, int quantity) {
         boolean stockAvailable = service.checkStockIsAvailable(product, quantity);
