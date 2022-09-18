@@ -2,6 +2,8 @@ package com.cydeo.tightly;
 
 import com.cydeo.CustomerBalance;
 import com.cydeo.GiftCardBalance;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.math.BigDecimal;
 
