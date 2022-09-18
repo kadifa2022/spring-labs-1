@@ -1,7 +1,10 @@
 package com.cydeo;
 
+import com.cydeo.loosely.Balance;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -9,7 +12,8 @@ import java.util.UUID;
 
 @Getter
 @Setter
-public class GiftCardBalance{
+
+public class GiftCardBalance extends Balance {
     private UUID userId;
     private BigDecimal amount;
 
