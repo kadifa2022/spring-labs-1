@@ -1,8 +1,7 @@
 package com.cydeo;
 import com.cydeo.loosely.Balance;
 import com.cydeo.loosely.BalanceManager;
-import com.cydeo.tightly.BalanceService;
-import org.springframework.context.annotation.Configuration;
+
 
 import java.math.BigDecimal;
 import java.util.UUID;
