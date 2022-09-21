@@ -1,4 +1,4 @@
-package com.cydeo.tightly;
+package com.cydeo;
 
 import com.cydeo.loosely.Balance;
 import lombok.Getter;
@@ -19,5 +19,11 @@ public class CustomerBalance extends Balance {
     }
 
 
+    @Override
+    public BigDecimal addBalance(BigDecimal amount) {
+        setAmount(this.amount.add(amount));
+
+        return this.amount;
     }
+}
 
