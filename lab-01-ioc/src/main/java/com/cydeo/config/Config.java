@@ -12,11 +12,11 @@ import java.util.UUID;
 @Configuration
 public class Config {
     @Bean
-    public Saving savingBean(Currency currency){
+    public Saving savingBean(){
         Saving saving = new Saving();
         saving.setAccountId(UUID.randomUUID());
         saving.setAmount(new BigDecimal("500"));
-        saving.setCurrency(currency);
+        saving.setCurrency(new Currency("DLR","Dollar"));//currency  object
         return saving;
     }
     @Bean
@@ -24,7 +24,7 @@ public class Config {
         return  new Currency("DLR", "Dollar");
     }
     @Bean
-    public Current currentBean( Currency currency){
+    public Current currentBean(Currency currency){
         Current current= new Current();
         current.setAccountId(UUID.randomUUID());
         current.setAmount(new BigDecimal("500"));
