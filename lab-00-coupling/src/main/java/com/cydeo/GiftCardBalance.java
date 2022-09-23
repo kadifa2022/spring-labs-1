@@ -14,11 +14,8 @@ import java.util.UUID;
 
 public class GiftCardBalance extends Balance {
     private UUID userId;
-    private BigDecimal amount;
-
     public GiftCardBalance(UUID userId, BigDecimal amount) {
-        this.userId = userId;
-        this.amount = amount;
+        super(userId, amount);
     }
 
     public BigDecimal addBalance(BigDecimal amount) {
@@ -27,7 +24,7 @@ public class GiftCardBalance extends Balance {
                         .divide(new BigDecimal(100)
                                 , MathContext.DECIMAL64);
 
-        setAmount(this.amount.add(amount).add(bonusAmount));
-        return this.amount;
+        setAmount(this.getAmount().add(amount).add(bonusAmount));
+        return this.getAmount();
     }
 }
