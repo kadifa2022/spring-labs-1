@@ -18,6 +18,7 @@ public class ProductController {
     //localhost:8080/search-product/milk
     @RequestMapping("/search-product/{productName}")
     public String searchProduct(@PathVariable("productName")String productName,Model model){
+
         model.addAttribute("productList", productService.searchProduct(productName));
         return"product/product-list";
     }
