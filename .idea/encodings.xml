@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/lab-00-coupling-1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lab-00-coupling/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lab-00-coupling/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lab-01-ioc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lab-01-ioc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lab-02-di/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lab-02-di/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lab-03-springboot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lab-04-springmvc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lab-04-springmvc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-05-thymeleaf/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-05-thymeleaf/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
