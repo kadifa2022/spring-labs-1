@@ -11,6 +11,8 @@
         <option value="$PROJECT_DIR$/lab-00-coupling-1/pom.xml" />
         <option value="$PROJECT_DIR$/lab-04-springmvc/pom.xml" />
         <option value="$PROJECT_DIR$/spring-05-thymeleaf/pom.xml" />
+        <option value="$PROJECT_DIR$/lab-06-orm/pom.xml" />
+        <option value="$PROJECT_DIR$/lab-07-orm-queries/pom.xml" />
       </list>
     </option>
   </component>
