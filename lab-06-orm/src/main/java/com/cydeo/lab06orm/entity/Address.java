@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Address {
+public class Address {//Varchar
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
