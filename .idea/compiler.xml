@@ -12,6 +12,7 @@
         <module name="lab-07-orm-queries" />
         <module name="lab-01-ioc" />
         <module name="lab-02-di" />
+        <module name="lab-08-rest" />
         <module name="lab-03-springboot" />
         <module name="lab-00-coupling" />
         <module name="lab-06-orm" />
@@ -29,6 +30,7 @@
       <module name="lab-04-springmvc" options="-parameters" />
       <module name="lab-06-orm" options="-parameters" />
       <module name="lab-07-orm-queries" options="-parameters" />
+      <module name="lab-08-rest" options="-parameters" />
       <module name="spring-05-thymeleaf" options="-parameters" />
     </option>
   </component>
