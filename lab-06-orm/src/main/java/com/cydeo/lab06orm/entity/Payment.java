@@ -1,6 +1,6 @@
 package com.cydeo.lab06orm.entity;
 
-import com.cydeo.lab06orm.enums.PaymentMethode;
+import com.cydeo.lab06orm.enums.PaymentMethod;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +18,6 @@ public class Payment extends BaseEntity{
 
     private BigDecimal paidPrice;
     @Enumerated(EnumType.STRING)
-    private PaymentMethode paymentMethode;
+    private PaymentMethod paymentMethod;
 
 }
