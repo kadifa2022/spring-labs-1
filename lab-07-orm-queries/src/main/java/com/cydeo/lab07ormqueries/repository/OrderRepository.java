@@ -1,7 +1,8 @@
 package com.cydeo.lab07ormqueries.repository;
 
 import com.cydeo.lab07ormqueries.Entity.Order;
-import com.cydeo.lab07ormqueries.enums.PaymentMethode;
+import com.cydeo.lab07ormqueries.enums.PaymentMethod;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,7 +18,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     //Write a derived query to get all orders by customer email
     List<Order> findAllByCustomer_Email(String email);
     //Write a derived query to get all orders by specific payment method
-    List<Order> findAllByPayment_PaymentMethode(PaymentMethode paymentMethode);
+    List<Order> findAllByPayment_PaymentMethod(PaymentMethod paymentMethod);
 
 
     //Write a derived query to check is there any orders by customer email
