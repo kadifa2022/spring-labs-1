@@ -1,5 +1,6 @@
 package com.cydeo.lab07ormqueries;
 import com.cydeo.lab07ormqueries.repository.*;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -29,5 +30,6 @@ public class QueryDemo implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        System.out.println(orderRepository.findAllByCustomer_Email("asturton0@list-manage.com").get(0).toString());
     }
 }
