@@ -4,12 +4,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
+
 
 @Setter
 @Getter
@@ -18,9 +16,9 @@ import java.util.List;
 public class Product extends BaseEntity{
     private String name;
     private BigDecimal price;
-    private BigDecimal quantity;
+    private Integer quantity;
     private Integer remainingQuantity;
-    @ManyToOne
+    @ManyToMany
     @JoinTable(name = "product_category_rel",
             joinColumns = @JoinColumn(name = "p_id"),
             inverseJoinColumns = @JoinColumn(name = "c_id"))
