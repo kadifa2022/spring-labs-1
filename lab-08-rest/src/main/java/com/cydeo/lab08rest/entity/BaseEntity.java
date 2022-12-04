@@ -1,5 +1,4 @@
-package com.cydeo.lab07ormqueries.Entity;
-
+package com.cydeo.lab08rest.entity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,5 +14,4 @@ public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 }
