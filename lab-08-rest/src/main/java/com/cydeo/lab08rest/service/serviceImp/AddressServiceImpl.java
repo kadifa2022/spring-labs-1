@@ -1,41 +1,8 @@
 package com.cydeo.lab08rest.service.serviceImp;
 
-import com.cydeo.lab08rest.dto.AddressDTO;
-import com.cydeo.lab08rest.service.Address;
 
-public class AddressServiceImpl implements Address {
-    @Override
-    public AddressDTO getAddressList() {
-        return null;
-    }
+import com.cydeo.lab08rest.service.AddressService;
 
-    @Override
-    public AddressDTO createAddress() {
-        return null;
-    }
+public class AddressServiceImpl implements AddressService {
 
-    @Override
-    public AddressDTO updateAddress() {
-        return null;
-    }
-
-    @Override
-    public AddressDTO deleteAddress() {
-        return null;
-    }
-
-    @Override
-    public AddressDTO getAddressByCustomerId() {
-        return null;
-    }
-
-    @Override
-    public AddressDTO getAddressListByStartsWithAddress() {
-        return null;
-    }
-
-    @Override
-    public AddressDTO getAddressListByCustomerAndName() {
-        return null;
-    }
 }
