@@ -1,4 +1,4 @@
 package com.cydeo.lab08rest.service;
 
-public interface Discount {
+public interface DiscountService {
 }
