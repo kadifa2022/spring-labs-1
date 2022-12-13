@@ -17,4 +17,5 @@ public interface CustomerRepository extends JpaRepository<Customer,Long> {
     @Query("SELECT c FROM Customer  c WHERE c.email = ?1")
     Customer retrieveByCustomerEmail(String email);
 
+   Customer findByUserName(String userName);
 }
