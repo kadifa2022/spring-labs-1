@@ -1,7 +1,7 @@
 package com.cydeo.lab08rest.controller;
 
 import com.cydeo.lab08rest.dto.CustomerDTO;
-import com.cydeo.lab08rest.dto.DiscountDTO;
+
 import com.cydeo.lab08rest.model.ResponseWrapper;
 import com.cydeo.lab08rest.service.CustomerService;
 import org.springframework.http.HttpStatus;
