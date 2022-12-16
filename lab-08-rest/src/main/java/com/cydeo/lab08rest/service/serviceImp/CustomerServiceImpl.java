@@ -23,6 +23,13 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
+    public CustomerDTO findById(Long customerId) {
+        return customerRepository.findById(customerId).stream()
+                .map(customer -> mapperUtil.convert(customer, new CustomerDTO()))
+                .findFirst().orElseThrow();
+    }
+
+    @Override
     public List<CustomerDTO> readAll() {
         return customerRepository.findAll().stream()
                 .map(customer -> mapperUtil.convert(customer, new CustomerDTO()))
@@ -31,14 +38,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO update(CustomerDTO customerDTO) {
-        Customer customer = customerRepository.findByUserName(customerDTO.getUserName());
-
-        customer.setEmail(customerDTO.getEmail());
-        customer.setFirstName(customerDTO.getFirstName());
-        customer.setLastName(customerDTO.getLastName());
-
-        Customer savedCustomer = customerRepository.save(customer);
-        return mapperUtil.convert(savedCustomer, new CustomerDTO());
+        Customer customer = customerRepository.save(mapperUtil.convert(customerDTO, new Customer()));
+        return mapperUtil.convert(customer, new CustomerDTO());
     }
 
     @Override
