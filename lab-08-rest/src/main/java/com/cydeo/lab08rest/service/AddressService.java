@@ -17,6 +17,8 @@ public interface AddressService {
 
     List<AddressDTO> readAllByCustomerId(Long id);
 
-    List<AddressDTO> readByCustomerIdAndName(Long customerId, String name);
+
+
+    List<AddressDTO> readAllByCustomerIdAndName(Long customerId, String name);
 }
 

@@ -2,41 +2,81 @@ package com.cydeo.lab08rest.service.serviceImp;
 
 
 import com.cydeo.lab08rest.dto.AddressDTO;
+import com.cydeo.lab08rest.entity.Address;
+import com.cydeo.lab08rest.entity.Customer;
+import com.cydeo.lab08rest.mapper.MapperUtil;
+import com.cydeo.lab08rest.repository.AddressRepository;
 import com.cydeo.lab08rest.service.AddressService;
+import com.cydeo.lab08rest.service.CustomerService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AddressServiceImpl implements AddressService {
 
+    private final AddressRepository addressRepository;
+    private final MapperUtil mapperUtil;
+    private final CustomerService customerService;
+
+    public AddressServiceImpl(AddressRepository addressRepository, MapperUtil mapperUtil, CustomerService customerService) {
+        this.addressRepository = addressRepository;
+        this.mapperUtil = mapperUtil;
+        this.customerService = customerService;
+    }
+
+
     @Override
     public List<AddressDTO> readAll() {
-        return null;
+        return addressRepository.findAll().stream().map(address -> mapperUtil.convert(address, new AddressDTO()))
+                .collect(Collectors.toList());
     }
 
     @Override
     public AddressDTO update(AddressDTO addressDTO) {
-        return null;
+
+        Address address= mapperUtil.convert(addressDTO, new Address());
+
+        address.setCustomer(mapperUtil.convert(customerService.findById(addressDTO
+                .getCustomerId()),new Customer()));
+        Address updatedAddress= addressRepository.save(address);
+
+        return mapperUtil.convert(updatedAddress, new AddressDTO());
     }
 
     @Override
     public AddressDTO create(AddressDTO addressDTO) {
-        return null;
+        Address address = mapperUtil.convert(addressDTO, new Address());
+
+        address.setCustomer(mapperUtil.convert(customerService.findById(addressDTO
+                .getCustomerId()), new Customer()));
+        Address savedAddress = addressRepository.save(address);
+
+        return mapperUtil.convert(savedAddress, new AddressDTO());
     }
 
     @Override
     public List<AddressDTO> readByStartsWith(String address) {
-        return null;
+        return addressRepository.findAllByStreetStartingWith(address)
+                .stream().map(address1 -> mapperUtil.convert(address1, new AddressDTO()))
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<AddressDTO> readAllByCustomerId(Long id) {
-        return null;
+        return addressRepository.retrieveByCustomerId(id)
+                .stream().map(address -> mapperUtil.convert(address, new AddressDTO()))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<AddressDTO> readByCustomerIdAndName(Long customerId, String name) {
-        return null;
+    public List<AddressDTO> readAllByCustomerIdAndName(Long customerId, String name) {
+        return addressRepository.findAllByCustomerIdAndName( customerId, name)
+                .stream().map(address -> mapperUtil.convert(address, new AddressDTO()))
+                .collect(Collectors.toList());
+
     }
+
+
 }
