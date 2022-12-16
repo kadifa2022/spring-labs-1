@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/customer")
+@RequestMapping("/api/v1/address")
 public class AddressController {
 
 
@@ -56,10 +56,10 @@ public class AddressController {
                 addressService.readAllByCustomerId(id), HttpStatus.OK));
 
     }
-    @GetMapping("/customer/{cusomerId}/name/{name}")
+    @GetMapping("/customer/{customerId}/name/{name}")
     public ResponseEntity<ResponseWrapper> getAddressByCustomerIdAndName(@PathVariable("customerId") Long customerId,
                                                              @PathVariable("name") String name ) {
         return ResponseEntity.ok(new ResponseWrapper("Addresses are retrieved.",
-                addressService.readByCustomerIdAndName(customerId, name), HttpStatus.OK));
+                addressService.readAllByCustomerIdAndName(customerId, name), HttpStatus.OK));
     }
 }

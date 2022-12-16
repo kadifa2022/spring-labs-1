@@ -12,6 +12,7 @@ public interface AddressRepository extends JpaRepository<Address,String> {
     //Write a derived query to get all address with a specific customer
     List<Address> findAllByCustomer(Customer customer);
 
+
     //Write a derived query to get address with a specific street
     Address findByStreet(String street);
 
@@ -20,6 +21,7 @@ public interface AddressRepository extends JpaRepository<Address,String> {
 
     //Write a derived query to get all address with a specific customer and name
     List<Address> findAllByCustomerAndName(Customer customer, String name);
+    List<Address> findAllByCustomerIdAndName(Long id, String name);
 
     //Write a derived query to list all address where the beginning of the street contains the keyword
     List<Address> findAllByStreetStartingWith(String keyword);
