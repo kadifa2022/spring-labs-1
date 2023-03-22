@@ -55,7 +55,7 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public ProductDTO retrieveByName(String name) {
+    public ProductDTO retrieveProductByName(String name) {
         return mapperUtil.convert(productRepository.findFirstByName(name), new ProductDTO());
     }
 
@@ -79,7 +79,7 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public List<ProductDTO> retrieveByCategory(Long categoryId) {
+    public List<ProductDTO> retrieveProductByCategoryId(Long categoryId) {
         return productRepository.retrieveProductListByCategory(categoryId)
                 .stream().map(product -> mapperUtil.convert(product, new ProductDTO()))
                 .collect(Collectors.toList());

@@ -18,7 +18,7 @@ public interface ProductService {
 
     List <ProductDTO>retrieveProductByCategoryAndPrice(List<Long> categoryList, BigDecimal price);
 
-    ProductDTO retrieveByName(String name);
+    ProductDTO retrieveProductByName(String name);
 
     List<ProductDTO> retrieveProductByTop3ProductByPrice();
 
@@ -26,7 +26,7 @@ public interface ProductService {
 
     List<ProductDTO> retrieveProductByPriceAndQuantity(BigDecimal price, Integer quantity);
 
-    List<ProductDTO> retrieveByCategory(Long categoryId);
+    List<ProductDTO> retrieveProductByCategoryId(Long categoryId);
 
 
 
