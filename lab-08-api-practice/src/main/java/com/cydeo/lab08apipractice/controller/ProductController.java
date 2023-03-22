@@ -49,9 +49,9 @@ public class ProductController {
   }
 
   @GetMapping("/{name}")
-  public ResponseEntity<ResponseWrapper> retrieveProductByName(@PathVariable("name")String name){
+  public ResponseEntity<ResponseWrapper> retrieveProductByName(@PathVariable("name") String name){
     return ResponseEntity.ok(new ResponseWrapper("Product are successfully retrieved"
-            , productService.retrieveByName("name"), HttpStatus.OK));
+            , productService.retrieveProductByName(name), HttpStatus.OK));
   }
   @GetMapping("/top3")
   public ResponseEntity<ResponseWrapper> retrieveProductByTop3ProductByPrice(){
@@ -72,24 +72,14 @@ public class ProductController {
 
   }
   @GetMapping("/category/{id}")
-  public ResponseEntity<ResponseWrapper> retrieveByCategory(@PathVariable("id") Long categoryId){
+  public ResponseEntity<ResponseWrapper> retrieveProductByCategoryId(@PathVariable("id") Long categoryId){
     return ResponseEntity.ok(new ResponseWrapper("Product are successfully retrieved"
-            , productService.retrieveByCategory(categoryId), HttpStatus.OK));
+            , productService.retrieveProductByCategoryId(categoryId), HttpStatus.OK));
   }
 
 
 
 
-
-
-
-
-
-
-//  @GetMapping("/category/{id}")
-//  public ResponseEntity<ResponseWrapper> retrieveByCategory(@PathVariable("id") Long categoryId){
-//      return ResponseEntity.ok(new ResponseWrapper("Product are successfully retrieved"
-//      , productService.retrieveByCategory(categoryId), HttpStatus.OK));
   }
 
 
