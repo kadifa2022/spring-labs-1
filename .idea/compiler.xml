@@ -8,18 +8,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-05-thymeleaf" />
+        <module name="lab-08-api-practice" />
         <module name="lab-00-coupling-1" />
         <module name="lab-07-orm-queries" />
         <module name="lab-01-ioc" />
         <module name="lab-02-di" />
         <module name="lab-08-rest" />
         <module name="lab-03-springboot" />
-        <module name="lab-08-api_restPractice" />
         <module name="lab-00-coupling" />
         <module name="lab-06-orm" />
         <module name="lab-04-springmvc" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lab-08-api-restPractice" target="11" />
+      <module name="lab-08-rest-api-practice" target="11" />
+      <module name="lab-08-restPractice" target="11" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -31,8 +36,11 @@
       <module name="lab-04-springmvc" options="-parameters" />
       <module name="lab-06-orm" options="-parameters" />
       <module name="lab-07-orm-queries" options="-parameters" />
-      <module name="lab-08-api_restPractice" options="-parameters" />
+      <module name="lab-08-api-practice" options="-parameters" />
+      <module name="lab-08-api-restPractice" options="-parameters" />
       <module name="lab-08-rest" options="-parameters" />
+      <module name="lab-08-rest-api-practice" options="-parameters" />
+      <module name="lab-08-restPractice" options="-parameters" />
       <module name="spring-05-thymeleaf" options="-parameters" />
     </option>
   </component>
