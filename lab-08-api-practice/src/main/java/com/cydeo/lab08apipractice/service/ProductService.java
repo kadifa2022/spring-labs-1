@@ -18,17 +18,16 @@ public interface ProductService {
 
     List <ProductDTO>retrieveProductByCategoryAndPrice(List<Long> categoryList, BigDecimal price);
 
+    ProductDTO retrieveByName(String name);
 
-//
-//    List<ProductDTO> retrieveProductByCategoryAndPrice(List<Long> categoryList, BigDecimal price);
-//
-//    ProductDTO retrievedByName(String name);
-//
-//    List<ProductDTO> retrieveProductByTop3ProductByPrice();
-//
-//   Integer countProductByPrice(BigDecimal price);
-//
-//    List<ProductDTO> retrieveProductByPriceAndQuantity(BigDecimal price, Integer quantity);
-//
-//   List<ProductDTO> retrieveByCategory(Long categoryId);
+    List<ProductDTO> retrieveProductByTop3ProductByPrice();
+
+    Integer countProductByPrice(BigDecimal price);
+
+    List<ProductDTO> retrieveProductByPriceAndQuantity(BigDecimal price, Integer quantity);
+
+    List<ProductDTO> retrieveByCategory(Long categoryId);
+
+
+
 }
