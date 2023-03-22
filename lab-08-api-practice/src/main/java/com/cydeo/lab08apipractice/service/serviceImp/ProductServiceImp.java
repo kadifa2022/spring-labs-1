@@ -54,47 +54,39 @@ public class ProductServiceImp implements ProductService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public ProductDTO retrieveByName(String name) {
+        return mapperUtil.convert(productRepository.findFirstByName(name), new ProductDTO());
+    }
 
-//    }
-//
-//    @Override
-//    public List<ProductDTO> retrieveProductByCategoryAndPrice(List<Long> categoryList, BigDecimal price) {
-//        return productRepository.retrieveProductListByCategory(categoryList, price).stream()
-//                .map(product -> mapperUtil.convert(product, new ProductDTO()))
-//                .collect(Collectors.toList());
-//    }
-//
-//    @Override
-//    public ProductDTO retrievedByName(String name) {
-//        return mapperUtil.convert(productRepository.findFirstByName(name), new ProductDTO());
-//    }
-//
-//    @Override
-//    public List<ProductDTO> retrieveProductByTop3ProductByPrice() {
-//        return productRepository.findTop3ByOrderByPriceDesc().stream()
-//                .map(product -> mapperUtil.convert(product, new ProductDTO())).collect(Collectors.toList());
-//    }
-//
-//    @Override
-//    public Integer countProductByPrice(BigDecimal price) {
-//        return productRepository.countProductByPriceGreaterThan(price);
-//    }
-//
-//    @Override
-//    public List<ProductDTO> retrieveProductByPriceAndQuantity(BigDecimal price, Integer quantity) {
-//        return productRepository.retrieveProductListGreaterThanPriceAndLowerThanRemainingQuantity(price, quantity)
-//                .stream()
-//                .map(product -> mapperUtil.convert(product, new ProductDTO()))
-//                .collect(Collectors.toList());
-//    }
-//
-//    @Override
-//    public List<ProductDTO> retrieveByCategory(Long categoryId) {
-//        return productRepository.retrieveProductListByCategory(categoryId)
-//                .stream()
-//                .map(product -> mapperUtil.convert(product, new ProductDTO()))
-//                .collect(Collectors.toList());
-//    }
+    @Override
+    public List<ProductDTO> retrieveProductByTop3ProductByPrice() {
+        return productRepository.findTop3ByOrderByPriceDesc().stream()
+                .map(product -> mapperUtil.convert(product, new ProductDTO()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Integer countProductByPrice(BigDecimal price) {
+        return productRepository.countProductByPriceGreaterThan(price);
+    }
+
+    @Override
+    public List<ProductDTO> retrieveProductByPriceAndQuantity(BigDecimal price, Integer quantity) {
+        return productRepository.retrieveProductListGreaterThanPriceAndLowerThanRemainingQuantity(price, quantity)
+                .stream().map(product -> mapperUtil.convert(product, new ProductDTO()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ProductDTO> retrieveByCategory(Long categoryId) {
+        return productRepository.retrieveProductListByCategory(categoryId)
+                .stream().map(product -> mapperUtil.convert(product, new ProductDTO()))
+                .collect(Collectors.toList());
+    }
+
+
+
 
 
 }
