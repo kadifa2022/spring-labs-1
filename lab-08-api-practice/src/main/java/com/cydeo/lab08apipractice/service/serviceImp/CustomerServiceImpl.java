@@ -1,10 +1,12 @@
 package com.cydeo.lab08apipractice.service.serviceImp;
 
+import com.cydeo.lab08apipractice.dto.DiscountDTO;
+import com.cydeo.lab08apipractice.entity.Customer;
 import com.cydeo.lab08apipractice.mapper.MapperUtil;
 import com.cydeo.lab08apipractice.repository.CustomerRepository;
+import com.cydeo.lab08apipractice.repository.DiscountRepository;
 import com.cydeo.lab08apipractice.service.CustomerService;
 import com.cydeo.lab08apipractice.dto.CustomerDTO;
-import com.cydeo.lab08apipractice.entity.Customer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
+
 
     private final MapperUtil mapperUtil;
     private final CustomerRepository customerRepository;
