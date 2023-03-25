@@ -22,32 +22,32 @@ public class DiscountServiceImp implements DiscountService {
 
     @Override
     public List<DiscountDTO> readAll() {
-
         return discountRepository.findAll().stream()
                 .map(discount -> mapperUtil.convert(discount, new DiscountDTO()))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public DiscountDTO update(DiscountDTO discountDTO) {
+    public DiscountDTO update(DiscountDTO discountDTO) {//saving dto because we don't have anything in dto uniq
         Discount discount = discountRepository.save(mapperUtil.convert(discountDTO, new Discount()));
         return mapperUtil.convert(discount, new DiscountDTO());
     }
 
     @Override
     public DiscountDTO create(DiscountDTO discountDTO) {
-        Discount discount = discountRepository.save(mapperUtil.convert(discountDTO, new Discount()));
+        Discount discount= discountRepository.save(mapperUtil.convert(discountDTO, new Discount()));
         return mapperUtil.convert(discount, new DiscountDTO());
     }
 
     @Override
     public DiscountDTO readByName(String name) {
         return mapperUtil.convert(discountRepository.findFirstByName(name), new DiscountDTO());
+    }
 
     }
 
 
-}
+
 
 
 
