@@ -20,34 +20,42 @@ public class CustomerController {
     }
 
 
+
+
     @GetMapping
     public ResponseEntity<ResponseWrapper> listAllCustomers(){
-        return ResponseEntity.ok(new ResponseWrapper("Customers are retrieved"
-                , customerService.readAll(), HttpStatus.OK));
-
+        return ResponseEntity.ok(new ResponseWrapper("Costumers are retrieved "
+        , customerService.readAll(), HttpStatus.OK));
 
     }
+
     @PutMapping
-    public ResponseEntity<ResponseWrapper> updateCustomer(@RequestBody CustomerDTO customerDTO){
+    public ResponseEntity<ResponseWrapper> updateCostumer(@RequestBody CustomerDTO customerDTO){
         return ResponseEntity.ok(new ResponseWrapper("Customer is updated. "
-                , customerService.update(customerDTO),HttpStatus.OK));
-
+                , customerService.update(customerDTO), HttpStatus.OK ));
     }
-
-    @PostMapping
-    public ResponseEntity<ResponseWrapper> createCustomer(@RequestBody CustomerDTO customerDTO){
-        return ResponseEntity.ok(new ResponseWrapper("Customer is created."
-                , customerService.create(customerDTO), HttpStatus.OK));
-
-    }
-
-    @GetMapping("/{email}")
-    public ResponseEntity<ResponseWrapper> getCustomerByEmail(@PathVariable("email") String email){
-        return ResponseEntity.ok(new ResponseWrapper("Customer is retrieved.",
-               customerService.readByEmail(email), HttpStatus.OK));
-
-
-    }
+//    }
+//    @PutMapping
+//    public ResponseEntity<ResponseWrapper> updateCustomer(@RequestBody CustomerDTO customerDTO){
+//        return ResponseEntity.ok(new ResponseWrapper("Customer is updated. "
+//                , customerService.update(customerDTO),HttpStatus.OK));
+//
+//    }
+//
+//    @PostMapping
+//    public ResponseEntity<ResponseWrapper> createCustomer(@RequestBody CustomerDTO customerDTO){
+//        return ResponseEntity.ok(new ResponseWrapper("Customer is created."
+//                , customerService.create(customerDTO), HttpStatus.OK));
+//
+//    }
+//
+//    @GetMapping("/{email}")
+//    public ResponseEntity<ResponseWrapper> getCustomerByEmail(@PathVariable("email") String email){
+//        return ResponseEntity.ok(new ResponseWrapper("Customer is retrieved.",
+//               customerService.readByEmail(email), HttpStatus.OK));
+//
+//
+//    }
 
 
 
