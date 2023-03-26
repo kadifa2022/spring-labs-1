@@ -41,8 +41,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO update(CustomerDTO customerDTO) {
-        Customer customer = customerRepository.save(mapperUtil.convert(customerDTO, new Customer()));
-        return mapperUtil.convert(customer, new CustomerDTO());
+        Customer customer = customerRepository.findByUserName(customerDTO.getUserName());
+        customer.setEmail(customerDTO.getEmail());
+        customer.setFirstName(customerDTO.getFirstName());
+        customer.setLastName(customerDTO.getLastName());
+        Customer savedCustomer= customerRepository.save(customer);
+        return mapperUtil.convert(savedCustomer, new CustomerDTO());
     }
 
     @Override
