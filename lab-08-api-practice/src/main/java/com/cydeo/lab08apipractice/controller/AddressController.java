@@ -42,6 +42,17 @@ public class AddressController {
         return ResponseEntity.ok(new ResponseWrapper("Addresses are retrieved "
                 , addressService.readByStartsWith(address), HttpStatus.OK));
     }
+    @GetMapping("/customer/{id}")
+    public ResponseEntity<ResponseWrapper> getAddressByCustomerId(@PathVariable("id") Long  id){
+        return ResponseEntity.ok(new ResponseWrapper("Address is retrieved"
+                , addressService.readAllByCustomerId(id), HttpStatus.OK));
+    }
+    @GetMapping("/customer/{customerId}/name/{name}")
+    public ResponseEntity<ResponseWrapper> getAddressByCustomerIdAndName(@PathVariable("customerId") Long customerId
+            , @PathVariable("name") String name){
+        return ResponseEntity.ok(new ResponseWrapper("Address are retrieved"
+                , addressService.readAllByCustomerIdAndName(customerId, name), HttpStatus.OK));
+    }
 
 
 
