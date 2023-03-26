@@ -40,22 +40,11 @@ public class CustomerController {
     , customerService.create(customerDTO), HttpStatus.OK));
     }
 
-//    }
-//
-//    @PostMapping
-//    public ResponseEntity<ResponseWrapper> createCustomer(@RequestBody CustomerDTO customerDTO){
-//        return ResponseEntity.ok(new ResponseWrapper("Customer is created."
-//                , customerService.create(customerDTO), HttpStatus.OK));
-//
-//    }
-//
-//    @GetMapping("/{email}")
-//    public ResponseEntity<ResponseWrapper> getCustomerByEmail(@PathVariable("email") String email){
-//        return ResponseEntity.ok(new ResponseWrapper("Customer is retrieved.",
-//               customerService.readByEmail(email), HttpStatus.OK));
-//
-//
-//    }
+    @GetMapping("/{email}")
+    public ResponseEntity<ResponseWrapper> getCustomerByEmail(@PathVariable("email") String email){
+        return ResponseEntity.ok(new ResponseWrapper("Customer is retrieved. "
+        , customerService.readByEmail(email), HttpStatus.OK));
+    }
 
 
 
