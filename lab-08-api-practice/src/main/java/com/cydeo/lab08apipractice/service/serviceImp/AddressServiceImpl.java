@@ -26,57 +26,97 @@ public class AddressServiceImpl implements AddressService {
         this.customerService = customerService;
     }
 
-
     @Override
     public List<AddressDTO> readAll() {
-        return addressRepository.findAll().stream().map(address -> mapperUtil.convert(address, new AddressDTO()))
+        return addressRepository.findAll().stream()
+                .map(address -> mapperUtil.convert(address, new AddressDTO()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public AddressDTO update(AddressDTO addressDTO) {
+        Address address = mapperUtil.convert(addressDTO, new Address());
+        address.setCustomer(mapperUtil.convert(customerService.findById(addressDTO.getCustomerId()), new Customer()));
+        Address updateAddress = addressRepository.save(address);
+        return mapperUtil.convert(updateAddress, new AddressDTO());
 
-        Address address= mapperUtil.convert(addressDTO, new Address());
 
-        address.setCustomer(mapperUtil.convert(customerService.findById(addressDTO
-                .getCustomerId()),new Customer()));
-        Address updatedAddress= addressRepository.save(address);
-
-        return mapperUtil.convert(updatedAddress, new AddressDTO());
     }
 
     @Override
     public AddressDTO create(AddressDTO addressDTO) {
         Address address = mapperUtil.convert(addressDTO, new Address());
-
-        address.setCustomer(mapperUtil.convert(customerService.findById(addressDTO
-                .getCustomerId()), new Customer()));
-        Address savedAddress = addressRepository.save(address);
-
-        return mapperUtil.convert(savedAddress, new AddressDTO());
+        address.setCustomer(mapperUtil.convert(customerService.findById(addressDTO.getCustomerId()), new Customer()));
+        Address createAddress= addressRepository.save(address);
+        return mapperUtil.convert(createAddress, new AddressDTO());
     }
 
     @Override
     public List<AddressDTO> readByStartsWith(String address) {
-        return addressRepository.findAllByStreetStartingWith(address)
-                .stream().map(address1 -> mapperUtil.convert(address1, new AddressDTO()))
-                .collect(Collectors.toList());
+        return null;
     }
 
     @Override
     public List<AddressDTO> readAllByCustomerId(Long id) {
-        return addressRepository.retrieveByCustomerId(id)
-                .stream().map(address -> mapperUtil.convert(address, new AddressDTO()))
-                .collect(Collectors.toList());
+        return null;
     }
 
     @Override
     public List<AddressDTO> readAllByCustomerIdAndName(Long customerId, String name) {
-        return addressRepository.findAllByCustomerIdAndName( customerId, name)
-                .stream().map(address -> mapperUtil.convert(address, new AddressDTO()))
-                .collect(Collectors.toList());
-
+        return null;
     }
+
+
+//    @Override
+//    public List<AddressDTO> readAll() {
+//        return addressRepository.findAll().stream().map(address -> mapperUtil.convert(address, new AddressDTO()))
+//                .collect(Collectors.toList());
+//    }
+//
+//    @Override
+//    public AddressDTO update(AddressDTO addressDTO) {
+//
+//        Address address= mapperUtil.convert(addressDTO, new Address());
+//
+//        address.setCustomer(mapperUtil.convert(customerService.findById(addressDTO
+//                .getCustomerId()),new Customer()));
+//        Address updatedAddress= addressRepository.save(address);
+//
+//        return mapperUtil.convert(updatedAddress, new AddressDTO());
+//    }
+//
+//    @Override
+//    public AddressDTO create(AddressDTO addressDTO) {
+//        Address address = mapperUtil.convert(addressDTO, new Address());
+//
+//        address.setCustomer(mapperUtil.convert(customerService.findById(addressDTO
+//                .getCustomerId()), new Customer()));
+//        Address savedAddress = addressRepository.save(address);
+//
+//        return mapperUtil.convert(savedAddress, new AddressDTO());
+//    }
+//
+//    @Override
+//    public List<AddressDTO> readByStartsWith(String address) {
+//        return addressRepository.findAllByStreetStartingWith(address)
+//                .stream().map(address1 -> mapperUtil.convert(address1, new AddressDTO()))
+//                .collect(Collectors.toList());
+//    }
+//
+//    @Override
+//    public List<AddressDTO> readAllByCustomerId(Long id) {
+//        return addressRepository.retrieveByCustomerId(id)
+//                .stream().map(address -> mapperUtil.convert(address, new AddressDTO()))
+//                .collect(Collectors.toList());
+//    }
+//
+//    @Override
+//    public List<AddressDTO> readAllByCustomerIdAndName(Long customerId, String name) {
+//        return addressRepository.findAllByCustomerIdAndName( customerId, name)
+//                .stream().map(address -> mapperUtil.convert(address, new AddressDTO()))
+//                .collect(Collectors.toList());
+//
+//    }
 
 
 }
