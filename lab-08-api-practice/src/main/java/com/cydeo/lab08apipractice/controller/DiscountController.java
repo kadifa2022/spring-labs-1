@@ -47,42 +47,6 @@ public class DiscountController {
 
 
 
-//   private final DiscountService discountService;
-//
-//    public DiscountController(DiscountService discountService) {
-//        this.discountService = discountService;
-//    }
-//
-//
-//    @GetMapping
-//    public ResponseEntity<ResponseWrapper> listAllDiscounts(){
-//     return ResponseEntity.ok(new ResponseWrapper("Discounts are retrieved"
-//             , discountService.readAll(), HttpStatus.OK));
-//
-//
-//    }
-//    @PutMapping
-//    public ResponseEntity<ResponseWrapper> updateDiscount(@RequestBody DiscountDTO discountDTO){
-//     return ResponseEntity.ok(new ResponseWrapper("Discount is updated. "
-//             , discountService.update(discountDTO),HttpStatus.OK));
-//
-//    }
-//
-//    @PostMapping
-//    public ResponseEntity<ResponseWrapper> createDiscount(@RequestBody DiscountDTO discountDTO){
-//     return ResponseEntity.ok(new ResponseWrapper("Discount is created."
-//     , discountService.create(discountDTO), HttpStatus.OK));
-//
-//    }
-//
-//    @GetMapping("/{name}")
-//    public ResponseEntity<ResponseWrapper> getDiscountByName(@PathVariable("name") String name){
-//     return ResponseEntity.ok(new ResponseWrapper("Discounts are retrieved.",
-//             discountService.readByName(name), HttpStatus.OK));
-//
-//
-//    }
-
 
 
 }
