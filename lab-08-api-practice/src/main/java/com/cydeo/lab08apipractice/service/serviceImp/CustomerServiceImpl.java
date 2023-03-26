@@ -1,10 +1,10 @@
 package com.cydeo.lab08apipractice.service.serviceImp;
 
-import com.cydeo.lab08apipractice.dto.DiscountDTO;
+
 import com.cydeo.lab08apipractice.entity.Customer;
 import com.cydeo.lab08apipractice.mapper.MapperUtil;
 import com.cydeo.lab08apipractice.repository.CustomerRepository;
-import com.cydeo.lab08apipractice.repository.DiscountRepository;
+
 import com.cydeo.lab08apipractice.service.CustomerService;
 import com.cydeo.lab08apipractice.dto.CustomerDTO;
 import org.springframework.stereotype.Service;
