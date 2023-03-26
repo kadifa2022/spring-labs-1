@@ -25,6 +25,23 @@ public class AddressController {
         return ResponseEntity.ok(new ResponseWrapper("Addresses are retrieved "
                 , addressService.readAll(),HttpStatus.OK));
     }
+    @PutMapping
+    public ResponseEntity<ResponseWrapper> updateAddress(@RequestBody AddressDTO addressDTO){
+        return ResponseEntity.ok(new ResponseWrapper("Address is updated"
+                , addressService.update(addressDTO), HttpStatus.OK ));
+    }
+
+    @PostMapping
+    public ResponseEntity<ResponseWrapper> createAddress(@RequestBody AddressDTO addressDTO){
+        return ResponseEntity.ok(new ResponseWrapper("Address is created "
+                , addressService.create(addressDTO), HttpStatus.OK));
+    }
+
+    @GetMapping("/startsWith/{address}")
+    public ResponseEntity<ResponseWrapper> getAddressByStartsWith(@PathVariable("address") String address){
+        return ResponseEntity.ok(new ResponseWrapper("Addresses are retrieved "
+                , addressService.readByStartsWith(address), HttpStatus.OK));
+    }
 
 
 
