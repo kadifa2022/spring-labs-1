@@ -34,12 +34,12 @@ public class CustomerController {
         return ResponseEntity.ok(new ResponseWrapper("Customer is updated. "
                 , customerService.update(customerDTO), HttpStatus.OK ));
     }
-//    }
-//    @PutMapping
-//    public ResponseEntity<ResponseWrapper> updateCustomer(@RequestBody CustomerDTO customerDTO){
-//        return ResponseEntity.ok(new ResponseWrapper("Customer is updated. "
-//                , customerService.update(customerDTO),HttpStatus.OK));
-//
+    @PostMapping
+    public ResponseEntity<ResponseWrapper> createCustomer(@RequestBody CustomerDTO customerDTO){
+    return ResponseEntity.ok(new ResponseWrapper("Customer is created"
+    , customerService.create(customerDTO), HttpStatus.OK));
+    }
+
 //    }
 //
 //    @PostMapping
