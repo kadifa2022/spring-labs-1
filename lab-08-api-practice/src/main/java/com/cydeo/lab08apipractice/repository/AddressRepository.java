@@ -11,6 +11,7 @@ public interface AddressRepository extends JpaRepository<Address,String> {
 
     //Write a derived query to get all address with a specific customer
     List<Address> findAllByCustomer(Customer customer);
+   // List<Address> findAllByCustomerId(Long id);
 
 
     //Write a derived query to get address with a specific street
