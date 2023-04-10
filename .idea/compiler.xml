@@ -7,16 +7,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-13-Data-CinemaLab" />
+        <module name="spring-13-Data-Cinema-LabPractice" />
+        <module name="spring-17-REST-ConsumingApis" />
+        <module name="lab-02-di" />
+        <module name="lab-03-springboot" />
+        <module name="lab-06-orm" />
+        <module name="Spring-15-REST" />
         <module name="spring-05-thymeleaf" />
+        <module name="spring-18-REST-SchoolLab" />
         <module name="lab-08-api-practice" />
         <module name="lab-00-coupling-1" />
         <module name="lab-07-orm-queries" />
+        <module name="spring-14-Data-Queries" />
         <module name="lab-01-ioc" />
-        <module name="lab-02-di" />
         <module name="lab-08-rest" />
-        <module name="lab-03-springboot" />
         <module name="lab-00-coupling" />
-        <module name="lab-06-orm" />
         <module name="lab-04-springmvc" />
       </profile>
     </annotationProcessing>
@@ -28,6 +34,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Spring-15-REST" options="-parameters" />
       <module name="lab-00-coupling" options="-parameters" />
       <module name="lab-00-coupling-1" options="-parameters" />
       <module name="lab-01-ioc" options="-parameters" />
@@ -42,6 +49,11 @@
       <module name="lab-08-rest-api-practice" options="-parameters" />
       <module name="lab-08-restPractice" options="-parameters" />
       <module name="spring-05-thymeleaf" options="-parameters" />
+      <module name="spring-13-Data-Cinema-LabPractice" options="-parameters" />
+      <module name="spring-13-Data-CinemaLab" options="-parameters" />
+      <module name="spring-14-Data-Queries" options="-parameters" />
+      <module name="spring-17-REST-ConsumingApis" options="-parameters" />
+      <module name="spring-18-REST-SchoolLab" options="-parameters" />
     </option>
   </component>
 </project>

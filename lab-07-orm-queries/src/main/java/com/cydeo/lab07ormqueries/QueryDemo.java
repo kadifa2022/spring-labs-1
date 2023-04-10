@@ -31,5 +31,6 @@ public class QueryDemo implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println(orderRepository.findAllByCustomer_Email("asturton0@list-manage.com").get(0).toString());
+
     }
 }

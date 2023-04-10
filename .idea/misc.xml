@@ -15,6 +15,12 @@
         <option value="$PROJECT_DIR$/lab-07-orm-queries/pom.xml" />
         <option value="$PROJECT_DIR$/lab-08-rest/pom.xml" />
         <option value="$PROJECT_DIR$/lab-08-api-practice/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-13-Data-CinemaLab/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-13-Data-Cinema-LabPractice/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-14-Data-Queries/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-15-REST/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-17-REST-ConsumingApis/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-18-REST-SchoolLab/pom.xml" />
       </list>
     </option>
   </component>
