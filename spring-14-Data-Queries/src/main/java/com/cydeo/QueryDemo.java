@@ -1,5 +1,6 @@
 package com.cydeo;
 
+import com.cydeo.repository.CourseRepository;
 import com.cydeo.repository.DepartmentRepository;
 import com.cydeo.repository.EmployeeRepository;
 import com.cydeo.repository.RegionRepository;
@@ -13,11 +14,13 @@ public class QueryDemo implements CommandLineRunner {
     private final RegionRepository regionRepository;
     private final DepartmentRepository departmentRepository;
     private final EmployeeRepository employeeRepository;
+    private final CourseRepository courseRepository;
 
-    public QueryDemo(RegionRepository regionRepository, DepartmentRepository departmentRepository, EmployeeRepository employeeRepository) {
+    public QueryDemo(RegionRepository regionRepository, DepartmentRepository departmentRepository, EmployeeRepository employeeRepository, CourseRepository courseRepository) {
         this.regionRepository = regionRepository;
         this.departmentRepository = departmentRepository;
         this.employeeRepository = employeeRepository;
+        this.courseRepository = courseRepository;
     }
 
 
@@ -60,8 +63,10 @@ public class QueryDemo implements CommandLineRunner {
         //- JPQL Everything is related to entity
         System.out.println(employeeRepository.retrieveEmployeeDetails());
         System.out.println(employeeRepository.retrieveEmployeeSalary());
+        System.out.println();
 
-
+        System.out.println("----------------------------Course----------------------------------");
+        System.out.println("findAll" + courseRepository.findByCategory("Spring"));
 
     }
 
