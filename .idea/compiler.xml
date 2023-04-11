@@ -12,6 +12,7 @@
         <module name="spring-17-REST-ConsumingApis" />
         <module name="lab-02-di" />
         <module name="lab-03-springboot" />
+        <module name="spring-14-Data-Queries-Peactice" />
         <module name="lab-06-orm" />
         <module name="Spring-15-REST" />
         <module name="spring-05-thymeleaf" />
@@ -52,6 +53,7 @@
       <module name="spring-13-Data-Cinema-LabPractice" options="-parameters" />
       <module name="spring-13-Data-CinemaLab" options="-parameters" />
       <module name="spring-14-Data-Queries" options="-parameters" />
+      <module name="spring-14-Data-Queries-Peactice" options="-parameters" />
       <module name="spring-17-REST-ConsumingApis" options="-parameters" />
       <module name="spring-18-REST-SchoolLab" options="-parameters" />
     </option>
