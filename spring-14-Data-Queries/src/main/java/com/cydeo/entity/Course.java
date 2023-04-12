@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="COURSES")
-@NoArgsConstructor
+@NoArgsConstructor//when jpql  creating object from the class  thats why we need @NoArgsConstructor) behind scene  jpql is looking for object
 @Data
 public class Course {
     @Id
