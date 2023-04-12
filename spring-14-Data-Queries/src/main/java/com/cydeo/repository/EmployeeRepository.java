@@ -33,7 +33,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     List<Employee> findBySalaryLessThan(Integer salary);
 
     //Display all employees that has been hired between "" and ""
-//    List<Employee> findByHireDateBetween(LocalDate startDate, LocalDate endDate);
+    List<Employee> findByHireDateBetween(LocalDate startDate, LocalDate endDate);
 
     //Display all employees where salaries greater and equal to "" in order-salary
     List<Employee> findBySalaryGreaterThanEqualOrderBySalary(Integer salary);
