@@ -27,4 +27,6 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
     Stream<Course> streamAllByCategory(String category); //STREAM
 
 
+
+
 }
