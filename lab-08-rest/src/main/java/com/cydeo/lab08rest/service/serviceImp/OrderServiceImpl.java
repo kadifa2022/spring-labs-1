@@ -1,6 +1,7 @@
 package com.cydeo.lab08rest.service.serviceImp;
 
 import com.cydeo.lab08rest.dto.OrderDTO;
+import com.cydeo.lab08rest.dto.UpdateOrderDTO;
 import com.cydeo.lab08rest.entity.Cart;
 import com.cydeo.lab08rest.entity.Customer;
 import com.cydeo.lab08rest.entity.Order;
@@ -40,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
                 .stream().map(order -> mapperUtil.convert(order, new OrderDTO()))
                 .collect(Collectors.toList());
     }
-     // another way for updateMethod
+     // another way for updateMethod Jamal
     @Override
     public OrderDTO updateOrder(OrderDTO orderDTO) {
         // look for OrderId inside the DB and throw the exception
@@ -55,7 +56,7 @@ public class OrderServiceImpl implements OrderService {
         return mapperUtil.convert(updatedOrder, new OrderDTO());
     }
 
-    private void validateRelatedFieldsAreExist(OrderDTO orderDTO) {
+    private void validateRelatedFieldsAreExist(OrderDTO orderDTO) { //Jamal
         // in this method we have 3 different service and make sure they have those fields
         //we will create service and existById() method to verify
         // if id Doesn't exist (reversing business logic)
@@ -112,5 +113,33 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderDTO> retrieveOrderByEmail(String email) {
         return orderRepository.findAllByCustomer_Email(email).stream()
                 .map(order -> mapperUtil.convert(order, new OrderDTO())).collect(Collectors.toList());
+    }
+
+    @Override
+    public OrderDTO updateOrderById(Long id, UpdateOrderDTO updateOrderDTO) { // Jamal
+        Order order = orderRepository.findById(id).orElseThrow( // if order exist will return order
+                () -> new RuntimeException("Order could not be Found"));
+        //if we are getting the same value, it is not necessary to update the actual value
+
+        // we are creating one boolean variable
+        boolean changeDetected = false; // default
+
+        if (!order.getPaidPrice().equals(updateOrderDTO.getPaidPrice())) {
+            order.setPaidPrice(updateOrderDTO.getPaidPrice());
+            changeDetected = true;
+        }
+        if (!order.getTotalPrice().equals(updateOrderDTO.getTotalPrice())) {
+            order.setTotalPrice(updateOrderDTO.getTotalPrice());
+            changeDetected = true;
+        }
+        // if there is any change update the order and return it
+        if (changeDetected) {
+            Order updateOrder = orderRepository.save(order);
+            return mapperUtil.convert(updateOrder, new OrderDTO());
+        } else { // if there is no change
+            throw new RuntimeException("No changes detected");
+
+        }
+
     }
 }
