@@ -5,4 +5,6 @@ import com.cydeo.lab08rest.dto.CartDTO;
 public interface CartService {
 
      CartDTO findById(Long id);
+
+    boolean existById(Long id);
 }
