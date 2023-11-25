@@ -35,27 +35,27 @@ public class ProductController {
   @PutMapping
   public ResponseEntity<ResponseWrapper> updateProduct(@RequestBody ProductDTO productDTO) {
 
-    return ResponseEntity.ok(new ResponseWrapper("Products are successfully updated"
+    return ResponseEntity.ok(new ResponseWrapper("Product is  successfully updated"
             , productService.updateProduct(productDTO), HttpStatus.OK));
   }
 
   @PostMapping
   public ResponseEntity<ResponseWrapper> createProduct(@RequestBody ProductDTO productDTO) {
 
-    return ResponseEntity.ok(new ResponseWrapper("Products are successfully crested"
+    return ResponseEntity.ok(new ResponseWrapper("Product is  successfully crested"
             , productService.createProduct(productDTO), HttpStatus.CREATED));
   }
 
   @PostMapping("/categoryandprice")
   public ResponseEntity<ResponseWrapper> retrieveProductByCategoryAndPrice(@RequestBody ProductRequest productRequest) {
 
-    return ResponseEntity.ok(new ResponseWrapper("Products are successfully crested"
+    return ResponseEntity.ok(new ResponseWrapper("Products are successfully created"
             , productService.retrieveProductByCategoryAndPrice(productRequest.getCategoryList(), productRequest.getPrice()), HttpStatus.OK));
   }
 
   @GetMapping("/{name}")
   public ResponseEntity<ResponseWrapper> retrieveProductByName(@PathVariable("name") String name) {
-    return ResponseEntity.ok(new ResponseWrapper("Product are successfully retrieved"
+    return ResponseEntity.ok(new ResponseWrapper("Product is successfully retrieved"
             , productService.retrievedByName(name), HttpStatus.OK));
 
   }
