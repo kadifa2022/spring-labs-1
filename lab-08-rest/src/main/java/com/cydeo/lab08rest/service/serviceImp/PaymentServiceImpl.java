@@ -20,4 +20,9 @@ public class PaymentServiceImpl implements PaymentService {
     public PaymentDTO findById(Long id) {
         return mapperUtil.convert(paymentRepository.findById(id), new PaymentDTO());
     }
+
+    @Override
+    public boolean existById(Long id) {
+        return paymentRepository.existsById(id);
+    }
 }

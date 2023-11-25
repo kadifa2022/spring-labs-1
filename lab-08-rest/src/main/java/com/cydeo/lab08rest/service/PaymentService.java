@@ -8,5 +8,6 @@ import com.cydeo.lab08rest.entity.Payment;
 public interface PaymentService {
     PaymentDTO findById(Long id);
 
+    boolean existById(Long id);
 
 }
