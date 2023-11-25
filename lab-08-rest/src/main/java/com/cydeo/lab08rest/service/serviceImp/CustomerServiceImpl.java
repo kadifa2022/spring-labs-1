@@ -23,6 +23,11 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
+    public boolean existById(Long customerId) {   // boolean () is comming from  jpa
+        return customerRepository.existsById(customerId);
+    }
+
+    @Override
     public CustomerDTO findById(Long customerId) {
         return customerRepository.findById(customerId).stream()
                 .map(customer -> mapperUtil.convert(customer, new CustomerDTO()))
