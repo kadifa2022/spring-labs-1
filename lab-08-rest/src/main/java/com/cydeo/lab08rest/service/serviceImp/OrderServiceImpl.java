@@ -7,6 +7,7 @@ import com.cydeo.lab08rest.entity.Customer;
 import com.cydeo.lab08rest.entity.Order;
 import com.cydeo.lab08rest.entity.Payment;
 import com.cydeo.lab08rest.enums.PaymentMethod;
+import com.cydeo.lab08rest.exception.NotFoundException;
 import com.cydeo.lab08rest.mapper.MapperUtil;
 import com.cydeo.lab08rest.repository.OrderRepository;
 import com.cydeo.lab08rest.service.CartService;
@@ -14,6 +15,8 @@ import com.cydeo.lab08rest.service.CustomerService;
 import com.cydeo.lab08rest.service.OrderService;
 import com.cydeo.lab08rest.service.PaymentService;
 import org.springframework.stereotype.Service;
+
+import java.io.NotActiveException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,7 +49,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO updateOrder(OrderDTO orderDTO) {
         // look for OrderId inside the DB and throw the exception
         Order order = orderRepository.findById(orderDTO.getId()).orElseThrow( // if order exist will return order
-                () -> new RuntimeException("Order could not be Found"));
+                () -> new NotFoundException("Order could not be Found"));
         //then we need to check if the Order fields exists or not and creating method
         validateRelatedFieldsAreExist(orderDTO);
         // if fields exists, then convert orderDTO to order and save it
@@ -61,13 +64,13 @@ public class OrderServiceImpl implements OrderService {
         //we will create service and existById() method to verify
         // if id Doesn't exist (reversing business logic)
         if (!customerService.existById(orderDTO.getCustomerId())) {
-            throw new RuntimeException("Customer could not found");
+            throw new NotFoundException("Customer could not found");
         }
         if (!paymentService.existById(orderDTO.getPaymentId())) {
-            throw new RuntimeException("Payment could not found");
+            throw new NotFoundException("Payment could not found");
         }
         if (!cartService.existById(orderDTO.getCartId())) {
-            throw new RuntimeException("Cart could not found");
+            throw new NotFoundException("Cart could not found");
         }
 
 
@@ -118,7 +121,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderDTO updateOrderById(Long id, UpdateOrderDTO updateOrderDTO) { // Jamal
         Order order = orderRepository.findById(id).orElseThrow( // if order exist will return order
-                () -> new RuntimeException("Order could not be Found"));
+                () -> new NotFoundException("Order could not be Found"));
         //if we are getting the same value, it is not necessary to update the actual value
 
         // we are creating one boolean variable
@@ -137,7 +140,7 @@ public class OrderServiceImpl implements OrderService {
             Order updateOrder = orderRepository.save(order);
             return mapperUtil.convert(updateOrder, new OrderDTO());
         } else { // if there is no change
-            throw new RuntimeException("No changes detected");
+            throw new NotFoundException("No changes detected");
 
         }
 
