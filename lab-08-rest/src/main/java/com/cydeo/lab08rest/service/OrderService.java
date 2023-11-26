@@ -20,4 +20,6 @@ public interface OrderService {
     List<OrderDTO>retrieveOrderByEmail(String email);
 
     OrderDTO updateOrderById(Long id, UpdateOrderDTO updateOrderDTO);
+
+    OrderDTO retrieveOrderById(Long id);
 }

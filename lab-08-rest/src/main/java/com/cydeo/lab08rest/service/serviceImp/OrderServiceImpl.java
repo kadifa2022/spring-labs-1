@@ -145,4 +145,14 @@ public class OrderServiceImpl implements OrderService {
         }
 
     }
+
+    @Override
+    public OrderDTO retrieveOrderById(Long id) {
+        //Find the order based on id from repository
+        Order order = orderRepository.findById(id).orElseThrow(
+                ()-> new NotFoundException("Order could not be found."));
+        //convert and return it
+
+        return mapperUtil.convert(order, new OrderDTO());
+    }
 }
