@@ -6,6 +6,7 @@ import com.cydeo.lab08rest.enums.PaymentMethod;
 
 
 import java.util.List;
+import java.util.Optional;
 
 public interface OrderService {
 
@@ -21,5 +22,5 @@ public interface OrderService {
 
     OrderDTO updateOrderById(Long id, UpdateOrderDTO updateOrderDTO);
 
-    OrderDTO retrieveOrderById(Long id);
+    OrderDTO retrieveOrderById(Long id, Optional<String> currency);
 }
