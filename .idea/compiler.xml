@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="lab-06-orm-ecommerce" />
         <module name="spring-13-Data-CinemaLab" />
         <module name="spring-13-Data-Cinema-LabPractice" />
         <module name="spring-17-REST-ConsumingApis" />
@@ -43,6 +44,7 @@
       <module name="lab-03-springboot" options="-parameters" />
       <module name="lab-04-springmvc" options="-parameters" />
       <module name="lab-06-orm" options="-parameters" />
+      <module name="lab-06-orm-ecommerce" options="-parameters" />
       <module name="lab-07-orm-queries" options="-parameters" />
       <module name="lab-08-api-practice" options="-parameters" />
       <module name="lab-08-api-restPractice" options="-parameters" />
