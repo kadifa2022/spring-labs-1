@@ -11,6 +11,7 @@
         <module name="spring-13-Data-CinemaLab" />
         <module name="spring-13-Data-Cinema-LabPractice" />
         <module name="spring-17-REST-ConsumingApis" />
+        <module name="spring-16-REST-Jackson" />
         <module name="lab-02-di" />
         <module name="lab-03-springboot" />
         <module name="spring-14-Data-Queries-Peactice" />
@@ -32,6 +33,7 @@
       <module name="lab-08-api-restPractice" target="11" />
       <module name="lab-08-rest-api-practice" target="11" />
       <module name="lab-08-restPractice" target="11" />
+      <module name="spring-16-rest" target="18" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -56,6 +58,7 @@
       <module name="spring-13-Data-CinemaLab" options="-parameters" />
       <module name="spring-14-Data-Queries" options="-parameters" />
       <module name="spring-14-Data-Queries-Peactice" options="-parameters" />
+      <module name="spring-16-REST-Jackson" options="-parameters" />
       <module name="spring-17-REST-ConsumingApis" options="-parameters" />
       <module name="spring-18-REST-SchoolLab" options="-parameters" />
     </option>
