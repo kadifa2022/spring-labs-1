@@ -1,5 +1,4 @@
 
-
 INSERT INTO public.discount (discount, discount_type, name) VALUES (25.00, 'RATE_BASED', '%25');
 INSERT INTO public.discount ( discount, discount_type, name) VALUES (50.00, 'AMOUNT_BASED', '50 dollar');
 
