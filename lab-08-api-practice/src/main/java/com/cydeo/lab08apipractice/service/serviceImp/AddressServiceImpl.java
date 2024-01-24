@@ -40,8 +40,6 @@ public class AddressServiceImpl implements AddressService {
                 .convert(customerService.findById(addressDTO.getCustomerId()), new Customer())); // set it new customer
         Address updateAddress = addressRepository.save(address);
         return mapperUtil.convert(updateAddress, new AddressDTO());
-
-
     }
 
     @Override

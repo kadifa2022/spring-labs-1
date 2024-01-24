@@ -22,7 +22,7 @@ public class ResponseWrapper {//we are customized JSON output with responseWrapp
         this.success=true;
 
     }
-    public ResponseWrapper(String message){//if we delete something we can't see data thats why we create two cunstructors
+    public ResponseWrapper(String message){//if we delete something we can't see data that's why we create two constructors
         this.message=message;
         this.code=HttpStatus.OK.value();
         this.success=true;

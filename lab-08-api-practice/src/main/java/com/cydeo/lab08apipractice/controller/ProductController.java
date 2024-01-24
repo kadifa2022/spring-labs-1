@@ -23,20 +23,18 @@ public class ProductController {
     this.productService = productService;
   }
 
+
   @GetMapping
   public ResponseEntity<ResponseWrapper> listProduct() {
-
     return ResponseEntity
             .ok(new ResponseWrapper("Product are successfully retrieved"
                     , productService.retrieveListProduct(), HttpStatus.OK));
-
   }
   @PutMapping
   public ResponseEntity<ResponseWrapper> updateProduct(@RequestBody ProductDTO productDTO){
     return ResponseEntity.ok(new ResponseWrapper("Product are successfully updated",
             productService.updateProduct(productDTO),HttpStatus.OK));
   }
-
   @PostMapping
   public ResponseEntity<ResponseWrapper> createProduct(@RequestBody ProductDTO productDTO){
     return ResponseEntity.ok(new ResponseWrapper("Product are successfully created"
@@ -47,7 +45,6 @@ public class ProductController {
     return ResponseEntity.ok(new ResponseWrapper("Product are successfully retrieved by category and price"
             , productService.retrieveProductByCategoryAndPrice(productRequest.getCategoryList(), productRequest.getPrice()), HttpStatus.OK));
   }
-
   @GetMapping("/{name}")
   public ResponseEntity<ResponseWrapper> retrieveProductByName(@PathVariable("name") String name){
     return ResponseEntity.ok(new ResponseWrapper("Product are successfully retrieved"
@@ -63,13 +60,11 @@ public class ProductController {
     return ResponseEntity.ok(new ResponseWrapper("Product are successfully retrieved"
             , productService.countProductByPrice(price), HttpStatus.OK));
   }
-
   @GetMapping("/price/{price}/quantity/{quantity}")
   public ResponseEntity<ResponseWrapper> retrieveProductByPriceAndQuantity(@PathVariable("price") BigDecimal price,
           @PathVariable("quantity" )Integer quantity){
     return ResponseEntity.ok(new ResponseWrapper("Product are successfully retrieved"
             , productService.retrieveProductByPriceAndQuantity(price, quantity),HttpStatus.OK));
-
   }
   @GetMapping("/category/{id}")
   public ResponseEntity<ResponseWrapper> retrieveProductByCategoryId(@PathVariable("id") Long categoryId){
