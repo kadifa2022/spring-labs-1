@@ -15,11 +15,11 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)// ignoring unknown fields
+@JsonInclude(JsonInclude.Include.NON_NULL) // hiding null value fields
 public class TeacherDTO {
 
-    @JsonIgnore
+    @JsonIgnore // hiding id ignoring this field
     private Long id;
 
     private String firstName;
@@ -29,7 +29,7 @@ public class TeacherDTO {
     private String email;
     private String username;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)//hiding password for get Requests
     private String password;
 
     private LocalDate birthday;
