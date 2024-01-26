@@ -38,5 +38,5 @@ public class AddressDTO {
     private TeacherDTO teacher;
 
     private Integer currentTemperature;     //weather inf. which we will latter get from third party API
-
+    private String flag;
 }

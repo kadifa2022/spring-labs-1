@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -77,10 +78,19 @@ public class SchoolController {
     return status code:200
     "address is successfully retrieved" , message, and address information
      */
-    @GetMapping("/address/{id}")
+    // api weather consume - we are looking for address and specific endpoint and inside the method findById()
+    // api country/flag consume - we are looking for address and specific endpoint and inside the method findById()
+    @GetMapping("/address/{id}") // i want to see specific address parameter{}
+    // we will accept that id from the user, when they send get request from the api
     public ResponseEntity<ResponseWrapper> getAddress(@PathVariable("id") Long id) throws Exception {
-        AddressDTO  addressDTO = addressService.findById(id);
-        return ResponseEntity.ok(new ResponseWrapper("Address is successfully retrieved",addressDTO));
+        AddressDTO  addressToReturn = addressService.findById(id); // based on id we wil find id and returned
+        return ResponseEntity.ok(new ResponseWrapper("Address "+id+ " is successfully retrieved",addressToReturn));
+    }
+    @PutMapping("/address/{id}")
+    public AddressDTO updateAddress(@PathVariable("id") Long id, AddressDTO addressDTO) throws Exception {
+        addressDTO.setId(id);
+        AddressDTO updateAddress = addressService.update(addressDTO);
+         return  updateAddress;
     }
 
 

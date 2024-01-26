@@ -1,5 +1,5 @@
 
-package cydeo.dto;
+package cydeo.dto.weather;
 
 import com.fasterxml.jackson.annotation.*;
 
