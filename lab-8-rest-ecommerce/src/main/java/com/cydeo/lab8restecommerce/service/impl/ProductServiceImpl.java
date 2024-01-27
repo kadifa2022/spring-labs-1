@@ -66,5 +66,12 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.countProductByPriceGreaterThan(price);
     }
 
+    @Override
+    public List<ProductDTO> countProductByPriceAndQuantity(BigDecimal price, Integer quantity) {
+       List<Product> list = productRepository.retrieveProductListGreaterThanPriceAndLowerThanRemainingQuantity(price,quantity);
+
+       return list.stream().map(product -> mapperUtil.convert(product, new ProductDTO())).collect(Collectors.toList());
+    }
+
 
 }

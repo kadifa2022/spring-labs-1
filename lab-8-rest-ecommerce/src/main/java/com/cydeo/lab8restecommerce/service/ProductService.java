@@ -20,4 +20,6 @@ public interface ProductService {
  List<ProductDTO> retrieveProductByTop3ProductPrice();
 
  Integer countProductByPrice(BigDecimal price);
+
+ List<ProductDTO>countProductByPriceAndQuantity(BigDecimal price, Integer quantity);
 }
