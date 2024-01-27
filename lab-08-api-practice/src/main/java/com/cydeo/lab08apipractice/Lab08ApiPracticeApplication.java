@@ -13,6 +13,7 @@ public class Lab08ApiPracticeApplication {
     }
     @Bean
     public ModelMapper mapper(){
+
         return new ModelMapper();
     }
 
