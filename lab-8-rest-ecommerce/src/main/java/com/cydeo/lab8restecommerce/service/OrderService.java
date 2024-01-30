@@ -13,4 +13,6 @@ public interface OrderService {
     OrderDTO updateOrder(OrderDTO orderDTO);
 
     OrderDTO  updateOrderById(Long id, UpdateOrderDTO updateOrderDTO);
+
+    OrderDTO retrieveOrderDetailById(Long id);
 }

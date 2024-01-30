@@ -76,6 +76,16 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
+    @Override
+    public OrderDTO retrieveOrderDetailById(Long id) {
+        //find the order based on id, converted and return it
+        Order order = orderRepository.findById(id).orElseThrow(
+                () -> new NotFoundException("Order could not be found."));
+
+        // convert and return
+        return mapperUtil.convert(order, new OrderDTO()) ;
+    }
+
     private void validateRelatedFieldsAreExists(OrderDTO orderDTO) {
         //in this method we have 3 different services and make sure they have those fields
         //we will create service and existById method and verify

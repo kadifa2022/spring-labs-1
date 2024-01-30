@@ -32,19 +32,24 @@ public class OrderController {
     }
 
     @PutMapping // update something that already exist
-    public ResponseEntity<ResponseWrapper> updateOrder(@RequestBody OrderDTO orderDTO){// will not take id inside my json
+    public ResponseEntity<ResponseWrapper> updateOrder(@Valid @RequestBody OrderDTO orderDTO){// will not take id inside my json
         return ResponseEntity.ok(new ResponseWrapper("Orders are successfully updated",
                 orderService.updateOrder(orderDTO), HttpStatus.OK ));
     }
 
     // will not take id inside my json
     @PutMapping("/{id}") // I will accept as id in my @PathVariable           // validation will be considered  from updateOrderDTO
-    public ResponseEntity<ResponseWrapper> updateOrder(@PathVariable("id") Long id, @Valid @RequestBody UpdateOrderDTO updateOrderDTO){
+    public ResponseEntity<ResponseWrapper> updateOrderById(@PathVariable("id") Long id, @Valid @RequestBody UpdateOrderDTO updateOrderDTO){
     return ResponseEntity.ok(new ResponseWrapper("Order is successfully updated",
             orderService.updateOrderById(id, updateOrderDTO), HttpStatus.OK));
     }
 
+    @GetMapping("/{id}") // consuming api
+    public ResponseEntity<ResponseWrapper> getOrderById(@PathVariable("id") Long id){
+        return ResponseEntity.ok(new ResponseWrapper("Order is successfully retrieved",
+                orderService.retrieveOrderDetailById(id), HttpStatus.OK));
 
+    }
 
 
 
