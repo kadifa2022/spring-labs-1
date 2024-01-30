@@ -14,11 +14,9 @@ public interface CurrencyApiClient {
     //  /live => endpoint that we are going to put @GetMapping
     //  ? = stop concatenating url, everything after ? mark is path parameter
     //  access_key=483b1ef51d63928d3aeb7079d3bd5557
-    //  &
-    //  currencies=EUR,TRY
+    //  &currencies=EUR,TRY
     //  &source=USD
-    //  &
-    //  format=1
+    //  &format=1
 
 
     // we will use this api inside OrderServiceImpl.

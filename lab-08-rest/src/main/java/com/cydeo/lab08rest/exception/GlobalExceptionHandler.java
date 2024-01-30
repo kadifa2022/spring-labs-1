@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
             String errorMessage = error.getDefaultMessage();
 
             ValidationError validationError = new ValidationError(fieldName, rejectedValue, errorMessage);
-            validationError.add(validationError);
+            validationErrors.add(validationError);
         }
         exceptionWrapper.setValidationErrorList(validationErrors);
         exceptionWrapper.setErrorCount(validationErrors.size());
