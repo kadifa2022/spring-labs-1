@@ -4,6 +4,7 @@ import com.cydeo.lab8restecommerce.dto.OrderDTO;
 import com.cydeo.lab8restecommerce.dto.UpdateOrderDTO;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface OrderService {
 
@@ -14,5 +15,5 @@ public interface OrderService {
 
     OrderDTO  updateOrderById(Long id, UpdateOrderDTO updateOrderDTO);
 
-    OrderDTO retrieveOrderDetailById(Long id);
+    OrderDTO retrieveOrderDetailById(Long id, Optional<String> currency);
 }
