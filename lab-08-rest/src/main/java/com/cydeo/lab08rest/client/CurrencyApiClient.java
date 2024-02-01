@@ -1,6 +1,6 @@
 package com.cydeo.lab08rest.client;
 
-import com.cydeo.lab08rest.dto.CurrencyApiResponse;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
