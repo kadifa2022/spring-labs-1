@@ -5,6 +5,8 @@ import com.cydeo.lab8restecommerce.dto.CurrencyApiResponse;
 import com.cydeo.lab8restecommerce.dto.OrderDTO;
 import com.cydeo.lab8restecommerce.dto.UpdateOrderDTO;
 import com.cydeo.lab8restecommerce.entity.Order;
+import com.cydeo.lab8restecommerce.enums.Currency;
+import com.cydeo.lab8restecommerce.exception.CurrencyTypeNotFoundException;
 import com.cydeo.lab8restecommerce.exception.NotFoundException;
 import com.cydeo.lab8restecommerce.mapper.MapperUtil;
 import com.cydeo.lab8restecommerce.repository.OrderRepository;
@@ -21,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -92,6 +95,7 @@ public class OrderServiceImpl implements OrderService {
         //optional will be here// if i have currency this line will be included otherwise will be skiped
         //if we are getting currency from the user than this line will execute
         currency.ifPresent(curr -> {// consume api
+            //check that if user currency input is valid(inside our currencies list
             validateCurrency(curr);// before using api i  validate currency because of cost
             
             //get the currency data based on currency type
@@ -109,7 +113,18 @@ public class OrderServiceImpl implements OrderService {
         return mapperUtil.convert(order, new OrderDTO());
     }
 
-    private void validateCurrency(String curr) { // method to validate currency
+    private void validateCurrency(String curr) { // method to validate currency before sending api because of cost
+        //check if the currency is valid currency and use this method before consuming api
+        //converting enums to list and checking if the currency is valid currency
+        List<String> currencies = Stream.of(Currency.values())
+                .map(currency -> currency.value)
+                .collect(Collectors.toList());
+
+        boolean  isCurrencyValid = currencies.contains(curr);//checking if the currency is valid currency
+        if(!isCurrencyValid){
+            throw new CurrencyTypeNotFoundException("Currency type for" + curr + "could not found.");
+
+        }
     }
     /*
     user input
@@ -122,12 +137,18 @@ public class OrderServiceImpl implements OrderService {
     private BigDecimal getCurrencyRate(String currency) { // all consuming related will be inside this method
         //consume the api  // request part
         // wwe saved response inside the quotes
-        Map<String, Double> quotes = currencyApiClient.getCurrencyRates(accessKey, currency, "USD", 1).getQuotes();
-        String expectedCurrency = "USD" + currency.toUpperCase(); // currency is coming whoever is using this method
-        BigDecimal currencyRate = BigDecimal.valueOf(quotes.get(expectedCurrency)); // key that will be use inside the map
-        return currencyRate; // converted to BigDecimal
+        Map<String, Double> quotes = (Map<String, Double>) currencyApiClient.getCurrencyRates(accessKey, currency, "USD", 1).get("quotes");
+        Boolean isSuccess = (Boolean) currencyApiClient.getCurrencyRates(accessKey, currency, "USD", 1).get("success");
+        // check if success, if truer than retrieve
+        if (isSuccess) {
+            throw new RuntimeException("API IS DOWN");
 
-    }
+        }
+            String expectedCurrency = "USD" + currency.toUpperCase(); // currency is coming whoever is using this method
+            BigDecimal currencyRate = BigDecimal.valueOf(quotes.get(expectedCurrency)); // key that will be use inside the map
+            return currencyRate; // converted to BigDecimal
+
+        }
 
     private void validateRelatedFieldsAreExists(OrderDTO orderDTO) {
         //in this method we have 3 different services and make sure they have those fields
