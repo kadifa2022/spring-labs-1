@@ -1,10 +1,12 @@
 package com.cydeo.lab8restecommerce.client;
 
-import com.cydeo.lab8restecommerce.dto.CurrencyApiResponse;
+
 import org.springframework.cloud.openfeign.FeignClient;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Map;
 
 @FeignClient(url = "http://apilayer.net/api", name = "currencyApiClient")
 public interface CurrencyApiClient {
@@ -21,7 +23,7 @@ public interface CurrencyApiClient {
     // Object we put for return type  on the beginning and latter change after we create response in dto
 
     @GetMapping("/live")
-    CurrencyApiResponse getCurrencyRates(@RequestParam("access_key") String accessKey,
+    Map<String, Object> getCurrencyRates(@RequestParam("access_key") String accessKey,
                                          @RequestParam("currencies") String currencies,
                                          @RequestParam("source") String source,
                                          @RequestParam("format") int format);
