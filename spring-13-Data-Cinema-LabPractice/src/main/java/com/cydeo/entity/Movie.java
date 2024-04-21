@@ -5,14 +5,18 @@ import com.cydeo.enums.MovieType;
 import jakarta.persistence.*;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+
 @Data
+
 @NoArgsConstructor
 public class Movie extends BaseEntity{
 
@@ -27,9 +31,10 @@ public class Movie extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private MovieState state;
     private BigDecimal price;
+
     @ManyToMany
     @JoinTable(name = "movie_genre_rel",
-            joinColumns = @JoinColumn (name = "movei_id")
+            joinColumns = @JoinColumn (name = "movie_id")
     ,inverseJoinColumns = @JoinColumn(name = "genre_id"))
     private List<Genre> genreList;//in this case is better to use set than list, because behind scene they delete everything and thn insert again
     //set only delete particular one
