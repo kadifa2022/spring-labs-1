@@ -2,6 +2,8 @@ package com.cydeo.repository;
 
 import com.cydeo.entity.MovieCinema;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 
 import java.math.BigDecimal;
@@ -33,6 +35,12 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
 
     //Write a derived query to list all movie cinema in a specific location name
     List<MovieCinema> findAllByCinemaLocationName(String name);
+
+    //-----------------JPQL QUERIES----------------//
+
+    //Write a JPQL query to list all movie cinemas with higher than a specific date
+    @Query("SELECT mc FROM MovieCinema  mc WHERE mc.dateTime > ?1")
+    List<MovieCinema> fetchAllWithHigherThanSpecificDate(@Param("dateTime") LocalDateTime dateTime);
 
 
 }
