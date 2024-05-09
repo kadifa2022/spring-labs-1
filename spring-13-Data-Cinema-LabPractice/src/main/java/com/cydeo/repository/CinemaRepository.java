@@ -43,7 +43,7 @@ public interface CinemaRepository extends JpaRepository<Cinema, Long>{
             " OR sponsored_name ILIKE concat ('%',?1,'%') ", nativeQuery = true)
     List<Cinema> retrieveAllByNameOrSponsorName(@Param("pattern") String pattern);
 
-// case sensitive if we don't use ILIKE (LOWER(name) or UPPER(name or sponsored_name )
+//case-sensitive if we don't use ILIKE (LOWER(name) or UPPER(name or sponsored_name )
 
     // write a native query to sort all cinemas by name
     @Query(value = "SELECT * FROM cinema ORDER BY name", nativeQuery = true)
