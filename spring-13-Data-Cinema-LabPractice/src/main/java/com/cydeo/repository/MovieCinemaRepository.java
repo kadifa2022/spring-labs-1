@@ -31,7 +31,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
     List<MovieCinema> findFirst3ByOrderByMoviePriceDesc();
 
     //Write a derived query to list all movie cinemas that contains a specific movie name
-    List<MovieCinema> findAllMovie_NameContaining(String name);
+    List<MovieCinema> findAllByCinemaNameContaining(String name);
 
     //Write a derived query to list all movie cinema in a specific location name
     List<MovieCinema> findAllByCinemaLocationName(String name);
@@ -53,7 +53,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
 
     @Query(value = "SELECT * FROM movie_cinema mc JOIN  cinema c ON " +
             " mc.cinema_id = c.id JOIN location l ON c.location = l.id " +
-            " WHERE l.name =?1 ", nativeQuery = true)
+            " WHERE l.name = ?1 ", nativeQuery = true)
     List<MovieCinema> retrieveAllByLocationName(@Param("name") String name);
 
 
