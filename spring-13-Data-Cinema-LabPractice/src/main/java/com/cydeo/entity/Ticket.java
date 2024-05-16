@@ -22,4 +22,9 @@ public class Ticket extends BaseEntity{
     private MovieCinema movieCinema;
     @ManyToOne(fetch = FetchType.LAZY)
     private User userAccount;
+    //this field is added to DB using flyway structure check sql.file
+    private Integer type;
+
+
+
 }
