@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus;
 @NoArgsConstructor
 public class ResponseWrapper {
 
-    private boolean success;//depends on company and bussiness
+    private boolean success;//depends on company and business
     private String message;
     private Integer code;
     private Object data;
