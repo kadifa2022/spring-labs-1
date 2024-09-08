@@ -17,12 +17,12 @@ public class User extends BaseEntity {//primary key base entity
     private String email;
     private String password;
     private String username;
-    @OneToOne(fetch= FetchType.LAZY)
+    @OneToOne(fetch= FetchType.LAZY) // load  Account only when is needed
     @JoinColumn(name ="account_details_id")
     private Account account;
 
     @Override
-    public String toString() {
+    public String toString() {// we create costume toString () withOut Account, because we don't need to call all the time
         return "User{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
