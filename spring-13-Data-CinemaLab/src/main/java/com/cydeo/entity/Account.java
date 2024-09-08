@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
-@Data
+@Data  // if we have @Data ToString method() is calling all the field from the class that's why we are using Mapped by
 @Table(name="account_details")
 public class Account extends BaseEntity{
 
