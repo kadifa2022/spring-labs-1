@@ -35,6 +35,7 @@
       <module name="lab-08-api-restPractice" target="11" />
       <module name="lab-08-rest-api-practice" target="11" />
       <module name="lab-08-restPractice" target="11" />
+      <module name="spring-12-Data-Relationship" target="18" />
       <module name="spring-16-rest" target="18" />
     </bytecodeTargetLevel>
   </component>
