@@ -7,9 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface AddressRepository  extends JpaRepository<Address, String> {
+public interface AddressRepository  extends JpaRepository<Address, Long> {
     //Write a derived query to get all address with a specific customer
     List<Address> findAllByCustomer(Customer customer);
+
+    // Write a derived query to get all addresses starting with a street name
+   // List<Address> findAllByStreetStartingWith(String street);
     //Write a derived query to get address with a specific street
     Address findByStreet(String street);
     //Write a derived query to get top 3 address with a specific customer email
