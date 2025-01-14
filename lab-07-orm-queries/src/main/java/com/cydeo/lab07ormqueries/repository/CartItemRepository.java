@@ -20,16 +20,19 @@ public interface CartItemRepository extends JpaRepository <CartItem, Long >{
     List<CartItem> findAllByCart_CartState(CartState cartState);
     //Write a native query to get cart items for specific cart state and product name
     @Query(value = "SELECT * FROM cart_item ci  JOIN cart c " +
-            " ON ci.cart_id=c.id JOIN product p ON ci.product_id=p.id " +
+            "ON ci.cart_id=c.id JOIN product p ON ci.product_id=p.id " +
             "where c.cart_state=?1 AND p.name=?2",nativeQuery = true)
     List<CartItem> retrieveCartItemsByCartStateAndProductName(@Param("cart_state") String cart_state,//put the string because is enum and native
                                                    @Param("name") String name);
 
     //Write a native query to get cart items for specific cart state and without discount
-    @Query(value= "SELECT * FROM cart_item ci JOIN cart c ON ci.cart_id=c.id WHERE c.cart_state=?1AND c.discount_id IS NULL ", nativeQuery=true )
+    @Query(value= "SELECT * FROM cart_item ci JOIN cart c " +
+            "ON ci.cart_id=c.id " +
+            "WHERE c.cart_state=?1AND c.discount_id IS NULL ", nativeQuery=true )
     List<CartItem> retrieveCartItemsByCartStateWithoutDiscount(@Param("cartState")String cartState);
     //Write a native query to get cart items for specific cart state and with specific Discount type
-    @Query(value="SELECT *FROM cart_item ci JOIN cart c ON ci.cart_id=c.id JOIN discount d ON c.discount_id=d.id"+
+    @Query(value="SELECT *FROM cart_item ci JOIN cart c " +
+            "ON ci.cart_id=c.id JOIN discount d ON c.discount_id=d.id"+
            "WHERE c cart_state=?1 AND d.discount_type=?2" ,nativeQuery = true)
     List<CartItem> retrieveCartItemsByCartStateAndDiscountType(@Param("cartState")String cartState, @Param("discountType") String discountType);
 }
